@@ -14,12 +14,16 @@ export const Characters = () => {
         .then((data) => setRepos(data));
     }, [])
 
+    const convert = repos.images ?? [];
+    const array = convert[0]
+    
+
     return (
         <Container>
             <Content>
-                {Array(repos).map((repos, index) => (
-                    <div className="naruto-characters" key={index}>
-                        <img src={repos.images} />
+                {Array(repos).map((repos) => (
+                    <div className="naruto-characters" key={repos.id}>
+                        <img src={array} />
                         <h1>{repos.name}</h1>
                         <a href={repos.page}>
                             <button>Historia de {repos.name}</button>

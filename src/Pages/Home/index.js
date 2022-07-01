@@ -15,9 +15,9 @@ export const Home = () => {
     return (
         <Container>
             <Content>
-                {repos.map((repos, index) => ( 
+                {repos.map((repos) => ( 
                     <Link to={`/characters/${repos.id}`}>
-                        <div key={index}>
+                        <div key={repos.id}>
                             <div className="naruto-box">
                                 <img src={repos.images[0]} />
                                 <p>Nome: {repos.name}</p>
