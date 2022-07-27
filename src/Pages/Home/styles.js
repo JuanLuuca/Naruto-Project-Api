@@ -3,6 +3,28 @@ import styled from "styled-components";
 export const Container = styled.header`
     max-width: 1140px;
     margin: auto;
+
+    .input-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    input { 
+        height: 40px;
+        width: 50%;
+        outline: none;
+        border: none;
+        border-bottom-right-radius: 20px;
+        padding: 0px 20px;
+
+        &:focus {
+            transition: all ease .4s;
+            background-color: black;
+            color: white;
+        }
+    }
 `;
 export const Content = styled.div`
     display: grid;

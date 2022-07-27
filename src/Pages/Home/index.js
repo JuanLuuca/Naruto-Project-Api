@@ -1,21 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../Api/api";
 import { Container, Content } from "./styles";
 
 export const Home = () => {
     const [repos, setRepos] = useState([]);
+    const [busca, setBusca] = useState('');
 
     useEffect(() => {
-        api.get(`/characters`)
-        .then(response => response.data)
-        .then(data => setRepos(data))
-  }, [])
+        const NarutoApi = async () => {
+            const response = await api.get(`/characters`);
+            const data = response.data
+            setRepos(data);
+        }
+        NarutoApi();
+    }, [api])
 
     return (
         <Container>
+            <div className="input-search">
+                <input
+                    type="text" 
+                    placeholder="Pesquise um ninja"
+                    onChange={(e) => setBusca(e.target.value)}
+                />
+            </div>
             <Content>
-                {repos.map((repos) => ( 
+                {repos.filter((user) => 
+                    user.name.toLowerCase().includes(busca)
+                ).map((repos) => ( 
                     <Link to={`/characters/${repos.id}`}>
                         <div key={repos.id}>
                             <div className="naruto-box">

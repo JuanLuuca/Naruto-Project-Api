@@ -15,8 +15,7 @@ export const Characters = () => {
     }, [])
 
     const convert = repos.images ?? [];
-    const array = convert[0]
-    
+    const array = convert[0];
 
     return (
         <Container>

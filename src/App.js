@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { Characters } from './Pages/Characters';
 
 function App() {
+  
   return (
     <div className='app'>
       <Header />
